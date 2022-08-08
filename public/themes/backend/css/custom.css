@@ -1,0 +1,28 @@
+.swal2-popup {
+    font-size: 1.6rem !important;
+}
+
+.skin-blue .main-header .logo {
+    background-color: #00A65A;
+    color: #fff;
+    border-bottom: 0 solid transparent;
+}
+
+.skin-blue .main-header .logo:hover {
+    background-color: #009551;
+    color: #fff;
+}
+
+.skin-blue .main-header .navbar {
+    background-color: #00A65A;
+}
+
+.skin-blue .sidebar-menu>li.header {
+    color: #4b646f;
+    background: #1E282C;
+}
+
+.fa.text-blue,
+.fa.text-info {
+    color: #00A65A !important;
+}
