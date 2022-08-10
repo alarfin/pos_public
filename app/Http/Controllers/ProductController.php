@@ -99,22 +99,7 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        $this->clientCheck($product);
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'product_unit_id' => 'required',
-            'product_color_id' => 'required',
-            'product_size_id' => 'required',
-            'buy_price' => 'required|numeric',
-            'sale_price' => 'required|numeric',
-            'whole_sale_price' => 'required|numeric',
-            'tax' => 'required|numeric',
-            'vat' => 'required|numeric',
-            'description' => 'nullable|string|max:255',
-            'status' => 'required'
-        ]);
-        $data = $request->except('code');
-        $product->update($data);
+        dd('Remove Code for demo');
 
         return redirect()->route('products')->with('message', 'Product edit successfully.');
     }

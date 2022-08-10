@@ -50,21 +50,7 @@ class BankController extends Controller
 
     public function editPost(Bank $bank, Request $request)
     {
-        $this->clientCheck($bank);
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'account_name' => 'required|string|max:255',
-            'account_code' => 'nullable|string|max:255',
-            'status' => 'required'
-        ]);
-
-        $bank->name = $request->name;
-        $bank->account_name = $request->account_name;
-        $bank->account_no = $request->account_no;
-        $bank->account_code = $request->account_code;
-        $bank->branch = $request->branch;
-        $bank->status = $request->status;
-        $bank->save();
+        dd('Remove Code for demo');
 
         return redirect()->route('bank')->with('message', 'Bank edit successfully.');
     }

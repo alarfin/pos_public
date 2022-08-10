@@ -127,6 +127,7 @@ class BalanceTransferController extends Controller
 
     public function balanceTransferDetails(BalanceTransfer $balance_transfer)
     {
+        dd('Remove Code for demo');
         return view('accounts.balance_transfer.details', compact('balance_transfer'));
     }
 

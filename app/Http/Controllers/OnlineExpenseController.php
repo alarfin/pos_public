@@ -125,57 +125,7 @@ class OnlineExpenseController extends Controller
 
     public function update(Request $request, OnlineExpense $online_expense)
     {
-        $this->clientCheck($online_expense);
-        $old_account = Account::find($online_expense->account_id);
-        $request->validate([
-            'company_branch_id' => 'required',
-            'date' => 'required|date',
-            'account_id' => 'required',
-            'payment_method' => 'required',
-            'bank_id' => 'required_if:payment_method,=,2',
-            'quantity' => 'required|numeric',
-            'amount' => 'required|numeric',
-        ]);
-
-        $account = Account::find($request->account_id);
-
-        $data = $request->all();
-        $data['account_head_id'] = $account->account_head_id;
-        $online_expense->update($data);
-
-        // Online Income Credit
-        $transaction_log1 = TransactionLog::where('client_id', Auth::user()->client_id)->where('account_id', $old_account->id)->where('online_expense_id', $online_expense->id)->first();
-
-        $transaction_log1->update([
-            'date' => date('Y-m-d', strtotime($request->date)),
-            'account_class_id' => $account->account_class_id,
-            'account_head_id' => $account->account_head_id,
-            'account_id' => $account->id,
-            'credit' => $online_expense->amount,
-            'amount' => $online_expense->amount,
-        ]);
-
-        //  Online income bank credit
-        if ($request->payment_method == 1) {
-            $payment_account = Account::find(3);
-        } elseif ($request->payment_method == 2) {
-            $payment_account = Account::find(4);
-        } else {
-            $payment_account = Account::find(5);
-        }
-
-        $transaction_log2 = TransactionLog::where('client_id', Auth::user()->client_id)->whereIn('account_id', [3, 4, 5, 6])->where('online_expense_id', $online_expense->id)->first();
-
-        if ($transaction_log2) {
-            $transaction_log2->update([
-                'date' => date('Y-m-d', strtotime($request->date)),
-                'account_class_id' => $payment_account->account_class_id,
-                'account_head_id' => $payment_account->account_head_id,
-                'account_id' => $payment_account->id,
-                'credit' => $online_expense->amount,
-                'amount' => $online_expense->amount,
-            ]);
-        }
+        dd('Remove Code for demo');
 
         return redirect()->route('online_expenses')->with('message', 'Online information updated successfully.');
     }

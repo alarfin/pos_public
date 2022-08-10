@@ -45,16 +45,7 @@ class ProductBrandController extends Controller
 
     public function update(ProductBrand $product_brand, Request $request)
     {
-        $this->clientCheck($product_brand);
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'status' => 'required'
-        ]);
-
-        $product_brand->name = $request->name;
-        $product_brand->description = $request->description;
-        $product_brand->status = $request->status;
-        $product_brand->save();
+        dd('Remove Code for demo');
 
         return redirect()->route('product_brands')->with('message', 'Product brand edit successfully.');
     }

@@ -190,12 +190,7 @@ class PriceQuotationController extends Controller
 
     public function priceQuotationDelete(PriceQuotation $price_quotation)
     {
-        $this->clientCheck($price_quotation);
-        // Remove Price quotation product
-        priceQuotationProduct::where('price_quotation_id', $price_quotation->id)->delete();
-        // Remove Price quotation
-        $price_quotation->update(['delete_user_id' => Auth::id()]);
-        $price_quotation->delete();
+        dd('Remove Code for demo');
 
         return redirect()->back()->with('message', 'Price quotation deleted successfully done.');
     }

@@ -43,15 +43,7 @@ class AccountController extends Controller
 
     public function update(Request $request, Account $account)
     {
-        $this->clientCheck($account);
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'account_head_id' => 'required',
-            'status' => 'required'
-        ]);
-
-        $data = $request->all();
-        $account->update($data);
+        dd('Remove Code for demo');
 
         return redirect()->route('accounts')->with('message', 'Account edit successfully.');
     }

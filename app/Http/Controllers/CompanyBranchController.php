@@ -55,37 +55,14 @@ class CompanyBranchController extends Controller
 
     public function editPost(Request $request, CompanyBranch $company_branch)
     {
-        $this->clientCheck($company_branch);
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'mobile_no' => 'required|string|max:255',
-            'email' => 'nullable|email',
-            'address' => 'nullable|string|max:255',
-            'status' => 'required',
-        ]);
-
-        if ($request->hasFile('image')) {
-            if ($company_branch->image) {
-                File::delete(url($company_branch->image));
-            }
-            $company_branch->image = $this->fileUpload($request->image, 'public/uploads/company_branch/', 800, 400);
-        }
-
-        $company_branch->name = $request->name;
-        $company_branch->mobile_no = $request->mobile_no;
-        $company_branch->email = $request->email;
-        $company_branch->address = $request->address;
-        $company_branch->status = $request->status;
-        $company_branch->save();
+        dd('Remove Code for demo');
 
         return redirect()->route('company_branches')->with('message', 'Company branch edit successfully.');
     }
 
     public function delete(CompanyBranch $company_branch)
     {
-        $this->clientCheck($company_branch);
-        $company_branch->update(['delete_user_id' => Auth::id()]);
-        $company_branch->delete();
+        dd('Remove Code for demo');
         return redirect()->route('company_branches')->with('message', 'Company branch delete successfully.');
     }
 

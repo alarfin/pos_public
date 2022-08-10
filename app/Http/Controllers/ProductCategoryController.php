@@ -46,17 +46,7 @@ class ProductCategoryController extends Controller
 
     public function update(Request $request, ProductCategory $product_category)
     {
-        $this->clientCheck($product_category);
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string|max:255',
-            'status' => 'required'
-        ]);
-
-        $product_category->name = $request->name;
-        $product_category->description = $request->description;
-        $product_category->status = $request->status;
-        $product_category->save();
+        dd('Remove Code for demo');
 
         return redirect()->route('product_categories')->with('message', 'Product category edit successfully.');
     }

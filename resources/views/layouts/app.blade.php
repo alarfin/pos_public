@@ -354,31 +354,6 @@
                                             product</a>
                                     </li>
                                 @endcan
-                                @can('product_transfers')
-                                    <li class="@yield('product_transfer_manage')">
-                                        <a href="{{ route('product_transfers') }}"><i class="fa fa-space-shuttle"></i>
-                                            Product transfer
-                                        </a>
-                                    </li>
-                                @endcan
-                                @can('product_damage')
-                                    <li class="@yield('product_damage')">
-                                        <a href="{{ route('product_damages') }}"><i class="fa fa-space-shuttle"></i>
-                                            Damage products </a>
-                                    </li>
-                                @endcan
-                                @can('product_inventory')
-                                    <li class="@yield('inventory')">
-                                        <a href="{{ route('inventory') }}"><i class="fa fa-space-shuttle"></i> Product
-                                            Inventory </a>
-                                    </li>
-                                @endcan
-                                @can('product_inventory_details')
-                                    <li class="@yield('inventory_details')">
-                                        <a href="{{ route('inventory_details') }}"><i class="fa fa-space-shuttle"></i>
-                                            Inventory Details </a>
-                                    </li>
-                                @endcan
                             </ul>
                         </li>
                     @endcan
@@ -546,72 +521,6 @@
                                             <li class="@yield('account_manage')">
                                                 <a href="{{ route('accounts') }}"><i class="fa fa-th-list"></i> Manage
                                                     Account </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                @endcan
-                                @can('debit_transaction')
-                                    <li class="treeview">
-                                        <a href="#"><i class="fa fa-space-shuttle"></i> Debit Transaction
-                                            <span class="pull-right-container">
-                                                <i class="fa fa-angle-left pull-right"></i>
-                                            </span>
-                                        </a>
-                                        <ul class="treeview-menu" style="@yield('debit_transaction')">
-                                            @can('employee_debit_transaction_add')
-                                                <li class="@yield('employee_debit_transaction_add')">
-                                                    <a href="{{ route('employee_debit_transaction_add') }}"><i
-                                                            class="fa fa-plus-circle"></i> Add Employee Debit </a>
-                                                </li>
-                                            @endcan
-                                            @can('supplier_debit_transaction_add')
-                                                <li class="@yield('supplier_debit_transaction_add')">
-                                                    <a href="{{ route('supplier_debit_transaction_add') }}"><i
-                                                            class="fa fa-plus-circle"></i> Add Supplier Debit </a>
-                                                </li>
-                                            @endcan
-                                            @can('debit_transaction_add')
-                                                <li class="@yield('debit_transaction_add')">
-                                                    <a href="{{ route('debit_transaction_add') }}"><i
-                                                            class="fa fa-plus-circle"></i> Add Debit </a>
-                                                </li>
-                                            @endcan
-                                            <li class="@yield('debit_transactions')">
-                                                <a href="{{ route('debit_transactions') }}"><i class="fa fa-th-list"></i>
-                                                    Manage Debit Voucher </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                @endcan
-                                @can('credit_transaction')
-                                    <li class="treeview">
-                                        <a href="#"><i class="fa fa-space-shuttle"></i> Credit Transaction
-                                            <span class="pull-right-container">
-                                                <i class="fa fa-angle-left pull-right"></i>
-                                            </span>
-                                        </a>
-                                        <ul class="treeview-menu" style="@yield('credit_transaction')">
-                                            @can('employee_credit_transaction_add')
-                                                <li class="@yield('employee_credit_transaction_add')">
-                                                    <a href="{{ route('employee_credit_transaction_add') }}"><i
-                                                            class="fa fa-plus-circle"></i> Add Employee Credit </a>
-                                                </li>
-                                            @endcan
-                                            @can('supplier_credit_transaction_add')
-                                                <li class="@yield('supplier_credit_transaction_add')">
-                                                    <a href="{{ route('supplier_credit_transaction_add') }}"><i
-                                                            class="fa fa-plus-circle"></i> Add Supplier Credit </a>
-                                                </li>
-                                            @endcan
-                                            @can('credit_transaction_add')
-                                                <li class="@yield('credit_transaction_add')">
-                                                    <a href="{{ route('credit_transaction_add') }}"><i
-                                                            class="fa fa-plus-circle"></i> Add Credit </a>
-                                                </li>
-                                            @endcan
-                                            <li class="@yield('credit_transactions')">
-                                                <a href="{{ route('credit_transactions') }}"><i class="fa fa-th-list"></i>
-                                                    Manage Credit Voucher </a>
                                             </li>
                                         </ul>
                                     </li>

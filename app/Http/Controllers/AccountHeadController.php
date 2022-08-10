@@ -43,15 +43,7 @@ class AccountHeadController extends Controller
 
     public function update(Request $request, AccountHead $account_head)
     {
-        $this->clientCheck($account_head);
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'account_class_id' => 'required',
-            'status' => 'required'
-        ]);
-
-        $data = $request->all();
-        $account_head->update($data);
+        dd('Remove Code for demo');
 
         return redirect()->route('account_heads')->with('message', 'Account head edit successfully.');
     }

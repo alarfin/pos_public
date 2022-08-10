@@ -46,17 +46,7 @@ class DesignationController extends Controller
 
     public function update(Request $request, Designation $designation)
     {
-        $this->clientCheck($designation);
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'short_name' => 'required|string|max:50',
-            'status' => 'required'
-        ]);
-
-        $designation->name = $request->name;
-        $designation->short_name = $request->short_name;
-        $designation->status = $request->status;
-        $designation->save();
+        dd('Remove Code for demo');
 
         return redirect()->route('designations')->with('message', 'Designation edit successfully.');
     }

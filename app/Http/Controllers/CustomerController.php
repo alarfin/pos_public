@@ -49,20 +49,7 @@ class CustomerController extends Controller
 
     public function editPost(Customer $customer, Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'mobile_no' => 'required|numeric|unique:customers,mobile_no,' . $customer->id,
-            'email' => 'nullable|email',
-            'address' => 'nullable|string|max:255',
-            'status' => 'required',
-        ]);
-
-        $customer->name = $request->name;
-        $customer->mobile_no = $request->mobile_no;
-        $customer->email = $request->email;
-        $customer->address = $request->address;
-        $customer->status = $request->status;
-        $customer->save();
+        dd('Remove Code for demo');
 
         return redirect()->route('customer')->with('message', 'Customer edit successfully.');
     }
